@@ -1,10 +1,14 @@
 <?php
 
 class Numeros
+
 {
+	private $numeros;
+
 	public function __construct(){				
+	$this->numeros = array();
 	}
-	
+		
 	/*
 	Insere numeros em um vetor
 	
@@ -13,9 +17,11 @@ class Numeros
 	inserir( 1 ); -> [ 3, 1 ]
 	inserir( 2 ); -> [ 3, 1, 2 ]
 	*/	
-	public function inserir( $numero ){				
-	}
-	
+	public function inserir( $numero ){	
+
+		array_push($this->numeros, $numero);
+	}				
+
 	/*
 	Procura e número solicitado no vetor e o remove do vetor se o achar	
 	
@@ -24,8 +30,17 @@ class Numeros
 	- false se não encontro o número
 	*/
 	public function remover( $numero ) {
-				
-		return ;
+		$retorno;
+		if(in_array($numero,$this->numeros)==true){
+			$indice = array_search($numero, $this->numeros);
+			unset($this->numeros[$indice]);
+			$retorno = "true";
+		}
+		else{
+			$retorno = "false";
+		}
+		
+		return $retorno;
 	}
 	
 	/*
@@ -33,7 +48,7 @@ class Numeros
 	*/
 	public function menor(){
 		
-		return $menor;		
+		return min($this->numeros);		
 	}
 	
 	/*
@@ -41,7 +56,7 @@ class Numeros
 	*/	
 	public function maior(){
 		
-		return $maior;	
+		return max($this->numeros);	
 	}
 	
 	/*
@@ -49,13 +64,31 @@ class Numeros
 	*/	
 	public function contar( $numero ){
 		
-		return $quantidade_encontrada;	
+       	 
+		$indice=array_search($numero, $this->numeros);
+		$total = 0;
+		for($i=0;$i<count($this->numeros);$i++){
+		  		if($this->numeros[$i]==$this->numeros[$indice])
+		  			$total++;
+		  	}
+
+		return ($total);  		
 	}
 		
 	/* 
 		Retorna a soma dos numeros armazenados na lista
 	*/
 	public function soma(){
+
+		$soma = 0;
+
+		for($i=0;$i<count($this->numeros);$i++)
+		{
+		
+			$soma=$this->numeros[$i]*$soma;
+		}
+
+
 		return $soma;		
 	}
 	
@@ -64,6 +97,15 @@ class Numeros
 	
 	*/	
 	public function produto(){
+
+		$produto=1;
+
+		for($i=0;$i<count($this->numeros);$i++)
+		{
+		
+			$produto=$this->numeros[$i]*$produto;
+		}
+
 		return $produto;
 	}
 		
@@ -71,7 +113,7 @@ class Numeros
 		Retorna a quantidade de numeros armazenados
 	*/
 	public function quantidade(){
-		
+			return count($this->numeros);
 	}
 	
 }
