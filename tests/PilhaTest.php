@@ -4,37 +4,22 @@ use PHPUnit\Framework\TestCase;
 
 final class PilhaTest extends TestCase
 {
-	
-	private $total;
-	private $ok;
-	
-	public function setUp(){
-		
-		$this->total = 0;
-		$this->ok = 0;
 
-	}
-	
+	public function testInserirItens()
+	{
 
-
-	public function TestInserirItemAleatorio(){
-		
 		$array = new Pilha();
+
 		$array->inserir(1);
 		$array->inserir(2);
-		
+		$array->inserir(3);
 
-	 
-		if ( $array->total_de_itens() == "2" ){
-			$this->ok ++;	
-			}						
-			$this->total ++;
-						
+		$this->assertEquals($array->total_de_itens(), 3);					
 	}
 	
-	
 
-	public function TestRemoverItens(){
+	public function testRemoverItens()
+	{
 
 		$array = new Pilha();
 
@@ -46,16 +31,11 @@ final class PilhaTest extends TestCase
 
 		$itemRemovido = $array->remover();
 
-
-		if ( $itemRemovido == "5" ){
-			$this->ok ++;	
-			}						
-			$this->total ++;
-	
+		$this->assertEquals($itemRemovido, 5);
 	}
 
-
-	public function TestTopo(){
+	public function testTopo()
+	{
 		
 		$array = new Pilha();
 
@@ -65,12 +45,7 @@ final class PilhaTest extends TestCase
 
 		$itemDoTopo = $array->topo();
 
-		 if ( $itemDoTopo == "3" ){
-			$this->ok ++;	
-			}						
-			$this->total ++;
-		
-		print_r( $array );
+		 $this->assertEquals($itemDoTopo, 3);
 
 	}
 
