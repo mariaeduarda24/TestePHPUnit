@@ -5,39 +5,22 @@ use PHPUnit\Framework\TestCase;
 final class FilaTest extends TestCase
 {
 	
-	private $total;
-	private $ok;
-	
-	public function setUp(){
-		
-		$this->total = 0;
-		$this->ok = 0;
-
-	}
-	
-
-
-	public function TestInserirItemAleatorio(){
+	public function testInserirValores(): void {
 		
 		$array = new Fila();
+		
 		$array->inserir(1);
 		$array->inserir(2);
+		$array->inserir(3);
+		$array->inserir(4);
 		
-
-	 
-		if ( $array->total_de_itens() == "2" ){
-			$this->ok ++;	
-			}						
-			$this->total ++;
-
-
-			
+		$this->assertEquals($array->total_de_itens(),4);
 							
 	}
 
 	
 	
-	public function TestRemoverItens(){
+	public function testRemoverItens(): void {
 
 		$array = new Fila();
 
@@ -47,37 +30,11 @@ final class FilaTest extends TestCase
 		$array->inserir(4);
 		$array->inserir(5);
 
-		$itemRemovido = $array->remover();
-
-
-		if ( $itemRemovido == "1" ){
-			$this->ok ++;	
-			}						
-			$this->total ++;
-
-			
+		$this->assertEquals($array->remover(),1);
+		
 	}
 
 
-
-    public function TestTopo(){
-		
-		$array = new Fila();
-
-		$array->inserir(1);
-		$array->inserir(2);
-		$array->inserir(3);
-
-		$itemDoTopo = $array->topo();
-
-		 if ( $itemDoTopo == "1" ){
-			$this->ok ++;	
-			}						
-			$this->total ++;
-		
-		print_r( $array );
-
-	}
 	
 }
 
