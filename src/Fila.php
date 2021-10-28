@@ -1,6 +1,6 @@
 <?php
 
-class Fila
+class fila
 {	
 	private $fila;
 
