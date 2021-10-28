@@ -28,12 +28,7 @@ class Fila
 		$primeiroDado = array_shift($this->fila);
 		return $primeiroDado;
 	}
-	
-	// Funciona como o remover() mas não remove o topo da fila
-	public function topo(){
-		$primeiroDado = reset($this->fila);
-		return $primeiroDado;		
-	}
+		
 	
 	// Retorna a quantidade de itens da fila
 	public function total_de_itens(){
@@ -41,7 +36,7 @@ class Fila
 		return $tamanho;
 	}
 	
-}
+};
 
 
 ?>
