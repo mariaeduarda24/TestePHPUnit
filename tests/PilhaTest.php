@@ -1,8 +1,9 @@
-<?php 
+<?php declare(strict_types=1);
 
-require_once("Pilha.php");
+use PHPUnit\Framework\TestCase;
 
-class PilhaTest{
+final class PilhaTest extends TestCase
+{
 	
 	private $total;
 	private $ok;
@@ -14,11 +15,6 @@ class PilhaTest{
 
 	}
 	
-	public function summary(){
-		
-		echo "<br/>Summary: " . $this->ok . "/" . $this->total . " tests passed";
-						
-	}
 
 
 	public function TestInserirItemAleatorio(){
@@ -55,11 +51,8 @@ class PilhaTest{
 			$this->ok ++;	
 			}						
 			$this->total ++;
-
-			
+	
 	}
-
-
 
 
 	public function TestTopo(){
@@ -82,18 +75,5 @@ class PilhaTest{
 	}
 
 }
-
-
-
-
-$testsuite = new PilhaTest();
-
-$testsuite->setUp();
-
-
-$testsuite->TestInserirItemAleatorio();
-$testsuite->TestRemoverItens();
-$testsuite->TestTopo();
-$testsuite->summary();
 
 ?>
