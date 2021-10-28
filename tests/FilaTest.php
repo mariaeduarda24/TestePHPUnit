@@ -7,7 +7,7 @@ final class FilaTest extends TestCase
 	
 	public function testInserirValores(): void {
 		
-		$array = new Fila();
+		$array = new fila();
 		
 		$array->inserir(1);
 		$array->inserir(2);
@@ -22,7 +22,7 @@ final class FilaTest extends TestCase
 	
 	public function testRemoverItens(): void {
 
-		$array = new Fila();
+		$array = new fila();
 
 		$array->inserir(1);
 		$array->inserir(2);
